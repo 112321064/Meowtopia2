@@ -14,9 +14,12 @@
         .game-canvas { position: relative; width: 1900px; height: 550px; background: #fffaf5; border: 8px solid #463438; border-radius: 40px; overflow: hidden; box-shadow: 15px 15px 0px #FFB7C5; }
         #leaderboard-wrapper { position: fixed; left: -220px; top: 50px; transform: none; display: flex; z-index: 150; transition: left 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         #leaderboard-wrapper.expanded {left: 0; }
-        .side-leaderboard-content { width: 220px; background: white; border: 6px solid #463438; border-left: none; border-radius: 0 30px 30px 0; padding: 15px; display: flex; flex-direction: column; max-height: 80vh; position: relative; z-index: 2; }
-        .bookmark-tab { position: absolute; right: -45px; top: 40px; width: 45px; height: 130px; background: #463438; border: 5px solid #463438; border-left: none; border-radius: 0 15px 15px 0; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, right 0.2s, width 0.2s; z-index: 1; }
+        .side-leaderboard-content { width: 220px; height: 450px; max-height: calc(100vh - 90px); background: white; border: 6px solid #463438; border-left: none; border-radius: 0 30px 30px 0; padding: 15px; display: flex; flex-direction: column; position: relative; z-index: 2; }
+        .bookmark-tab { position: absolute; right: -45px; width: 45px; height: 130px; background: #463438; border: 5px solid #463438; border-left: none; border-radius: 0 15px 15px 0; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s, right 0.2s, width 0.2s; z-index: 1; }
+        .bookmark-tab.rank-bookmark { top: 40px; border-radius: 0 15px 15px 0; background: #514749;}
+        .bookmark-tab.skin-bookmark { top: 170px; height: 118px; border-radius: 0 15px 15px 0; background: #7d6961; }
         .bookmark-tab:hover { background: #FFB7C5; width: 55px; right: -55px; }
+        #leaderboard-wrapper.expanded .bookmark-tab.active { background: #FFB7C5; }
         .bookmark-text { writing-mode: vertical-lr; color: white; font-weight: 900; font-size: 20px; text-shadow: 2px 2px 0 #463438; letter-spacing: 4px; user-select: none; }
         #rankList::-webkit-scrollbar { width: 6px; }
         #rankList::-webkit-scrollbar-thumb { background-color: #FFB7C5; border-radius: 10px; }
@@ -121,11 +124,16 @@
         .mode-toggle-inline { width: 44px; height: 44px; background: #ffffff; border: 3px solid #463438; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; box-shadow: 0 3px 0 #463438; transition: all 0.1s; margin-left: 10px; color: #463438; text-shadow: none; padding: 0; }
         .mode-toggle-inline:hover { transform: translateY(-2px); box-shadow: 0 5px 0 #463438; }
         .mode-toggle-inline:active { transform: translateY(2px); box-shadow: 0 1px 0 #463438; }
-        .skin-picker { position: relative; display: inline-flex; }
-        #skin-toggle-btn { font-size: 12px; font-weight: 900; }
-        .skin-menu { position: absolute; top: 52px; right: 0; width: 110px; background: #fff; border: 3px solid #463438; border-radius: 16px; box-shadow: 0 5px 0 #463438; padding: 6px; z-index: 600; }
-        .skin-option { width: 100%; padding: 7px 6px; border: 2px solid transparent; border-radius: 10px; background: #fff; color: #463438; font-size: 12px; font-weight: 900; cursor: pointer; text-align: center; }
-        .skin-option:hover, .skin-option.active { background: #FFB7C5; border-color: #463438; color: #fff; }
+        .skin-gallery { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; align-content: start; gap: 10px; overflow-y: auto; padding: 2px 2px 8px 0; }
+        .skin-card { min-height: 120px; border: 3px solid #463438; border-radius: 12px; background: #fffaf5; color: #463438; cursor: pointer; font-size: 12px; font-weight: 900; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 7px; box-shadow: 0 4px 0 rgba(70,52,56,0.18); transition: transform 0.12s, background 0.12s, box-shadow 0.12s; }
+        .skin-card:hover { background: #fce4ec; transform: translateY(-2px); box-shadow: 0 6px 0 rgba(70,52,56,0.22); }
+        .skin-card.active { background: #FFB7C5; color: #fff; box-shadow: 0 4px 0 #463438; }
+        .skin-preview { width: 70px; height: 70px; border: 3px solid #463438; border-radius: 50%; background: #fff; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .skin-preview img.preview-cat { max-width: 58px; max-height: 58px; object-fit: contain; pointer-events: none; }
+        .skin-preview img.preview-cat-mj { max-width: 63px; max-height: 68px; transform: scale(1.12); }
+        .skin-preview img.preview-cat.default-cat { filter: grayscale(1) saturate(0) brightness(0.95) contrast(0.72); transform: translate(-1px, 3px); }
+        .skin-preview img.preview-hat { position: absolute; width: 24px; top: 8px; left: 35px; transform: translateX(-50%); z-index: 2; pointer-events: none; }
+        .skin-card.active .skin-preview { border-color: #fff; }
         .skin-rip .fish-wrapper { position: absolute; width: 66px; height: 70px; pointer-events: none; z-index: 30; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         .skin-rip .fish-wrapper img.fish-img { width: 62px; height: auto; position: relative; z-index: 2; transform: translateY(-3px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
         .skin-rip .fish-wrapper img.fish-bg-shape { width: 52px; height: auto; position: absolute; z-index: 1; filter: brightness(0) invert(1); opacity: 1; transform: translateY(-3px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
@@ -178,6 +186,7 @@
     <div id="quantum-toggle" class="mode-toggle-fixed hidden" onclick="toggleQuantumMode()" style="top: 100px; font-size: 26px;">⚛️</div>
     <div id="leaderboard-wrapper">
         <div class="side-leaderboard-content">
+            <div id="rank-panel" class="side-panel-view flex flex-col flex-grow min-h-0">
             <h2 class="text-xl font-black mb-3 text-center" style="color: #463438;">🏆 TOP CATS</h2>
             <div class="flex gap-2 mb-3">
                 <button onclick="renderRank('steps')" id="tab-steps" class="rank-tab active">STEPS</button>
@@ -186,9 +195,43 @@
             <div id="rankList" class="flex-grow overflow-y-auto space-y-1 pr-1">
                 <p class="text-center italic text-gray-400 mt-10 text-sm">Loading...</p>
             </div>
+            </div>
+            <div id="skin-panel" class="side-panel-view hidden flex flex-col flex-grow min-h-0">
+                <h2 class="text-xl font-black mb-3 text-center" style="color: #463438;">SKINS</h2>
+                <div class="skin-gallery">
+                    <button id="skin-option-default" class="skin-card active" onclick="selectSkin('default')">
+                        <div class="skin-preview">
+                            <img src="./svg/hat-c.svg" class="preview-hat" alt="">
+                            <img src="./svg/011-c.svg" class="preview-cat default-cat" alt="DEFAULT 1111 cat">
+                        </div>
+                        <span>DEFAULT</span>
+                    </button>
+                    <button id="skin-option-rip" class="skin-card" onclick="selectSkin('rip')">
+                        <div class="skin-preview">
+                            <img src="./RIP/Cat16.png" class="preview-cat" alt="RIP 1111 cat">
+                        </div>
+                        <span>RIP</span>
+                    </button>
+                    <button id="skin-option-poto" class="skin-card" onclick="selectSkin('poto')">
+                        <div class="skin-preview">
+                            <img src="./poto/cat15.png" class="preview-cat" alt="POTO 1111 cat">
+                        </div>
+                        <span>POTO</span>
+                    </button>
+                    <button id="skin-option-mj" class="skin-card" onclick="selectSkin('mj')">
+                        <div class="skin-preview">
+                            <img src="./mj/Cat15.png" class="preview-cat preview-cat-mj" alt="MJ 1111 cat">
+                        </div>
+                        <span>MJ</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="bookmark-tab" onclick="toggleLeaderboard()">
+        <div id="rank-bookmark" class="bookmark-tab rank-bookmark active" onclick="toggleSidePanel('rank')">
             <div class="bookmark-text">RANK</div>
+        </div>
+        <div id="skin-bookmark" class="bookmark-tab skin-bookmark" onclick="toggleSidePanel('skin')">
+            <div class="bookmark-text">SKIN</div>
         </div>
     </div>
     <div class="w-full max-w-6xl">
@@ -196,15 +239,6 @@
             <div class="text-3xl font-black" style="color: #463438">STEPS: <span id="step-count">0</span> | TIME: <span id="timer">0</span></div>
             <div class="flex items-center gap-2 ml-auto">
                 <button id="label-toggle-btn" class="mode-toggle-inline" onclick="toggleLabels()" title="Toggle labels" aria-label="Toggle labels">&#127991;&#65039;</button>
-                <div class="skin-picker">
-                    <button id="skin-toggle-btn" class="mode-toggle-inline" onclick="toggleSkinMenu()" title="Change skin" aria-label="Change skin">SKIN</button>
-                    <div id="skin-menu" class="skin-menu hidden">
-                        <button id="skin-option-default" class="skin-option active" onclick="selectSkin('default')">DEFAULT</button>
-                        <button id="skin-option-rip" class="skin-option" onclick="selectSkin('rip')">RIP</button>
-                        <button id="skin-option-poto" class="skin-option" onclick="selectSkin('poto')">POTO</button>
-                        <button id="skin-option-mj" class="skin-option" onclick="selectSkin('mj')">MJ</button>
-                    </div>
-                </div>
                 <button id="mode-btn" class="multi-toggle-btn" onclick="cycleLineMode()">Mode: 1</button>
                 <div class="text-3xl font-black ml-6" style="color: #7bc202;">LEVEL 11</div>
             </div>
@@ -255,6 +289,7 @@
     <script>
         let labelsOpen = false;
         let currentSkin = ['default', 'rip', 'poto', 'mj'].includes(sessionStorage.getItem('level11Skin')) ? sessionStorage.getItem('level11Skin') : 'default';
+        let currentSidePanel = 'rank';
         function toggleLabels() {
             
             if (typeof pop !== 'undefined') { pop.currentTime = 0; pop.play(); }
@@ -278,21 +313,38 @@
             if (potoOption) potoOption.classList.toggle('active', currentSkin === 'poto');
             if (mjOption) mjOption.classList.toggle('active', currentSkin === 'mj');
         }
-        function toggleSkinMenu() {
-            const menu = document.getElementById('skin-menu');
-            if (menu) menu.classList.toggle('hidden');
+        function setSidePanel(panel) {
+            if (!['rank', 'skin'].includes(panel)) panel = 'rank';
+            currentSidePanel = panel;
+            const rankPanel = document.getElementById('rank-panel');
+            const skinPanel = document.getElementById('skin-panel');
+            const rankBookmark = document.getElementById('rank-bookmark');
+            const skinBookmark = document.getElementById('skin-bookmark');
+            if (rankPanel) rankPanel.classList.toggle('hidden', panel !== 'rank');
+            if (skinPanel) skinPanel.classList.toggle('hidden', panel !== 'skin');
+            if (rankBookmark) rankBookmark.classList.toggle('active', panel === 'rank');
+            if (skinBookmark) skinBookmark.classList.toggle('active', panel === 'skin');
+        }
+        function toggleSidePanel(panel) {
+            const wrapper = document.getElementById('leaderboard-wrapper');
+            if (!wrapper) return;
+            const isExpanded = wrapper.classList.contains('expanded');
+            if (currentSidePanel === panel && isExpanded) {
+                wrapper.classList.remove('expanded');
+                return;
+            }
+            setSidePanel(panel);
+            wrapper.classList.add('expanded');
         }
         function selectSkin(skin) {
             if (!['default', 'rip', 'poto', 'mj'].includes(skin)) skin = 'default';
             currentSkin = skin;
             sessionStorage.setItem('level11Skin', skin);
-            const menu = document.getElementById('skin-menu');
-            if (menu) menu.classList.add('hidden');
             applySkinClass();
             initGameLayout();
             updateFishUI();
         }
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzR0J0VXyl5ayKwDXlHimc4WS1FjvGEb2-gTBMhum8APQKfDHxc5wsiWRkNqkxJrocMOw/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyv3aQZO44pLQ7rr10pv0cOeJs-vdZehlABjrcJhQNQi9AWsGUutM7KXNFKPbFliqjWLA/exec';
         let steps = 0, time = 0, isPro = false, isQuantumMode = false, timerInterval, gateHistory = [], isSolved = false;
         let selectedIndices = [];
         let actionStack = [];
@@ -1079,7 +1131,7 @@
             }
         }
         function viewInLab() { if (gateHistory.length === 0) { alert("Current circuit is empty!"); return; } window.location.href = `lab4.html?circuit=${encodeURIComponent(gateHistory.join(','))}`; }
-        function toggleLeaderboard() { document.getElementById('leaderboard-wrapper').classList.toggle('expanded'); }
+        function toggleLeaderboard() { toggleSidePanel('rank'); }
         async function fetchLeaderboard() { const listArea = document.getElementById('rankList'); try { const response = await fetch(`${SCRIPT_URL}?action=getLeaderboard&level=11`); const data = await response.json(); if (data && Array.isArray(data) && data.length > 0) { leaderboardData = data; renderRank('steps'); } else { listArea.innerHTML = '<p class="text-center italic text-gray-400 mt-10 text-sm">No records yet</p>'; } } catch (e) { listArea.innerHTML = '<p class="text-center italic text-red-400 mt-10 text-sm">Load Error</p>'; } }
         function renderRank(type) { const tabSteps = document.getElementById('tab-steps'), tabTime = document.getElementById('tab-time'), listArea = document.getElementById('rankList'); if (type === 'steps') { tabSteps.className = 'rank-tab active'; tabTime.className = 'rank-tab bg-gray-100'; } else { tabSteps.className = 'rank-tab bg-gray-100'; tabTime.className = 'rank-tab active'; } if (!leaderboardData || leaderboardData.length === 0) return; const sorted = [...leaderboardData].sort((a, b) => a[type] - b[type]); let html = ""; sorted.slice(0, 10).forEach((item, index) => { const medal = index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : (index + 1) + "."; const av=item.photo?`<img src="${item.photo}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:${item.photoX||50}% ${item.photoY||50}%;transform:scale(${item.photoScale||1});">`:'🐱'; html += `<div class="rank-item"><div class="rank-avatar-sm">${av}</div><span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0;">${medal} ${item.username || item.name || 'Anonymous'}</span><span style="flex-shrink:0;color:#5ba4cf;">${type === 'steps' ? item.steps + '🐾' : item.time + 's'}</span></div>`; }); listArea.innerHTML = html; }
         function initGameLayout() {
