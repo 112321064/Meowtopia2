@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 1200 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Pikachu pointer printable</title>
+  <desc id="desc">A print-friendly Pikachu-style character holding a pointer stick and pointing at a lightning mark.</desc>
+  <defs>
+    <style>
+      .outline { stroke: #17120f; stroke-width: 18; stroke-linecap: round; stroke-linejoin: round; }
+      .thin-outline { stroke: #17120f; stroke-width: 10; stroke-linecap: round; stroke-linejoin: round; }
+      .yellow { fill: #ffd93d; }
+      .light-yellow { fill: #ffec6a; }
+      .shadow-yellow { fill: #f0b92e; }
+      .red { fill: #f15b45; }
+      .brown { fill: #8b5228; }
+      .black { fill: #17120f; }
+      .white { fill: #ffffff; }
+      .cream { fill: #fff5b8; }
+      .stick { stroke: #5b3a24; stroke-width: 18; stroke-linecap: round; }
+      .stick-light { stroke: #f8d992; stroke-width: 7; stroke-linecap: round; }
+      .motion { stroke: #ffcf2f; stroke-width: 12; stroke-linecap: round; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1600" fill="#ffffff"/>
+
+  <g transform="translate(0 10)">
+    <ellipse cx="560" cy="1420" rx="260" ry="45" fill="#e9e1ca"/>
+
+    <path class="yellow outline" d="M380 1005 C330 1118 310 1260 378 1353 C440 1438 604 1454 710 1405 C828 1350 835 1180 785 1030 C748 918 645 854 552 860 C470 865 412 928 380 1005 Z"/>
+    <path class="light-yellow" d="M438 1090 C410 1182 415 1305 486 1352 C548 1394 666 1386 724 1320 C783 1252 760 1112 720 1036 C668 937 531 922 472 1000 C456 1022 446 1052 438 1090 Z" opacity=".55"/>
+
+    <path class="yellow outline" d="M320 745 C260 847 287 1005 414 1062 C514 1107 656 1082 729 1000 C798 922 810 785 724 704 C633 618 416 601 320 745 Z"/>
+    <path class="cream" d="M360 781 C314 865 347 978 438 1018 C531 1059 648 1031 699 960 C750 890 746 796 680 742 C601 677 417 677 360 781 Z" opacity=".32"/>
+
+    <path class="yellow outline" d="M362 705 C315 565 270 385 305 187 C315 128 349 104 388 143 C472 229 494 440 459 682 Z"/>
+    <path class="black" d="M315 197 C324 133 359 112 389 145 C423 184 443 255 453 337 C397 313 349 267 315 197 Z"/>
+    <path class="yellow outline" d="M676 689 C715 532 792 350 934 224 C978 185 1016 195 1012 250 C1004 377 844 553 737 721 Z"/>
+    <path class="black" d="M909 248 C958 202 1007 209 1011 251 C1016 304 977 367 921 426 C898 366 894 305 909 248 Z"/>
+
+    <circle class="black" cx="435" cy="828" r="42"/>
+    <circle class="white" cx="450" cy="808" r="14"/>
+    <circle class="black" cx="625" cy="828" r="42"/>
+    <circle class="white" cx="640" cy="808" r="14"/>
+    <circle class="red thin-outline" cx="345" cy="910" r="50"/>
+    <circle class="red thin-outline" cx="714" cy="910" r="50"/>
+    <path class="black" d="M530 872 C546 862 566 862 582 872 C574 895 538 895 530 872 Z"/>
+    <path d="M487 935 C510 982 558 986 590 938" fill="none" stroke="#17120f" stroke-width="12" stroke-linecap="round"/>
+    <path d="M590 938 C623 984 670 971 690 928" fill="none" stroke="#17120f" stroke-width="12" stroke-linecap="round"/>
+    <path class="red" d="M558 969 C575 1004 627 998 635 962 C611 971 586 972 558 969 Z"/>
+
+    <path class="yellow outline" d="M383 1035 C293 1058 227 1126 186 1230 C174 1261 198 1289 228 1272 C320 1221 383 1161 430 1074 Z"/>
+    <path class="yellow outline" d="M716 1012 C815 984 903 1025 968 1126 C989 1158 970 1193 934 1182 C823 1148 751 1106 690 1045 Z"/>
+
+    <path class="yellow outline" d="M441 1372 C388 1404 352 1456 352 1505 C413 1513 486 1483 525 1422 Z"/>
+    <path class="yellow outline" d="M688 1382 C758 1398 812 1438 835 1489 C777 1522 688 1499 638 1433 Z"/>
+
+    <path class="brown outline" d="M780 1035 L932 950 L898 1048 L1034 993 L941 1116 L1050 1098 L868 1264 L915 1138 L785 1210 Z"/>
+    <path class="yellow outline" d="M852 903 L1038 808 L987 925 L1128 876 L997 1035 L1100 1020 L865 1245 L927 1080 L764 1165 Z"/>
+    <path class="light-yellow" d="M890 938 L1010 875 L978 947 L1066 921 L967 1031 L1034 1022 L900 1145 L936 1046 L835 1094 Z"/>
+
+    <line class="stick" x1="748" y1="1038" x2="1018" y2="680"/>
+    <line class="stick-light" x1="763" y1="1014" x2="1004" y2="696"/>
+    <circle class="yellow outline" cx="1028" cy="666" r="32"/>
+    <path class="red" d="M1015 660 C1024 646 1046 653 1047 671 C1031 678 1021 674 1015 660 Z"/>
+
+    <path class="motion" d="M980 557 C1026 511 1085 495 1138 520"/>
+    <path class="motion" d="M1017 613 C1067 589 1118 594 1158 631"/>
+    <path class="yellow outline" d="M950 435 L1037 372 L1016 468 L1097 444 L1004 553 L1084 538 L927 680 L973 562 L889 596 Z"/>
+    <path class="white" d="M970 470 L1017 437 L1005 487 L1053 474 L996 534 L1038 528 L958 600 L981 541 L936 558 Z"/>
+
+    <path d="M275 792 C249 821 241 859 253 902" fill="none" stroke="#17120f" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+    <path d="M770 779 C799 814 809 860 793 905" fill="none" stroke="#17120f" stroke-width="10" stroke-linecap="round" opacity=".45"/>
+  </g>
+</svg>
